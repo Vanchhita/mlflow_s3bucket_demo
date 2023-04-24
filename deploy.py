@@ -113,7 +113,7 @@ run = mlflow.get_run(run_id)
 artifact_uri = run.info.artifact_uri
 local_dir = "C:\\Users\v\Desktop\models"  # specify the path of the local directory where you want to save the downloaded artifacts
 
-model_path=mlflow.artifacts.download_artifacts(artifact_uri, local_dir)
+model_path=mlflow.artifacts.download_artifacts(run_id=run_id, local_dir=local_dir)
 
 #model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\Desktop\mlflow_demo\mlflow_s3bucket_demo\Demo_Models")
 
