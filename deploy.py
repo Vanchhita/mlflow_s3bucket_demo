@@ -96,17 +96,17 @@ print("MODEL URI:",model_uri)
 client = mlflow.tracking.MlflowClient()
 
 model_version_details = client.get_model_version(model_name, model_version.version)
+print(model_version_details)
+# artifact_path = model_version_details.source
 
-artifact_path = model_version_details.source
-
-print(artifact_path)
+# print(artifact_path)
 
 
 
 
 #Download the artifact in local machine
 
-model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\Desktop\mlflow_demo\mlflow_s3bucket_demo\Models")
+model_path = mlflow.artifacts.download_artifacts(artifact_path="file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/012f572be865428c9ab5b701ab2a6d1c/artifacts/model",dst_path="C:\\Users\v\Desktop\mlflow_demo\mlflow_s3bucket_demo\Models")
 
 print("MODEL PATH:",model_path)
 
