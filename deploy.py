@@ -106,7 +106,7 @@ print(artifact_path)
 
 #Download the artifact in local machine
 
-model_path = mlflow.artifacts.download_artifacts(artifact_path)
+model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\Desktop\mlflow_demo\mlflow_s3bucket_demo\Models")
 
 print("MODEL PATH:",model_path)
 
