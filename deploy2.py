@@ -14,7 +14,7 @@ aws_secret_access_key = os.environ["AWS_SECRET_ACCESS_KEY"]
 mlflow.set_tracking_uri("http://localhost:5000")
 
 # Search for the MLflow run
-runs = mlflow.search_runs(experiment_names=experiment_name)
+runs = mlflow.search_runs(experiment_names=experiment_name,experiment_ids=run_name)
 if len(runs) == 0:
     raise ValueError(f"No matching run found for experiment {experiment_name} and run {run_name}")
 run_id = runs.iloc[0].run_id
