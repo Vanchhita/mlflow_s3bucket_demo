@@ -12,21 +12,21 @@ on:
       - master
 
 env:
-  CSV_URL: "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
-  # CSV_URL: "daTA.csv"
+  # CSV_URL: "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
+  CSV_URL: "daTA.csv"
 
-  TARGET_VAR: "quality"
+  TARGET_VAR: "Selling_Price"
   ALPHA: 0.8
   L1_RATIO: 0.9
   RANDOM_STATE: 42
   EXPERIMENT_NAME: "Default"
-  RUN_NAME: "salty-donkey-31"
-  MLFLOW_TRACKING_URI: "https://0164-2405-201-6013-8ba4-80fe-9734-a413-68bf.in.ngrok.io"
+  RUN_NAME: "likeable-snail-983"
+  MLFLOW_TRACKING_URI: "https://9f91-49-36-209-126.in.ngrok.io"
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  S3_BUCKET_NAME: "dts-mlops-bucket"
-  S3_FOLDER_NAME: "model-registry"
-  MODEL_NAME: "Model-2"
+  S3_BUCKET_NAME: "dts-textract-test"
+  S3_FOLDER_NAME: "mlflow_demo_models"
+  MODEL_NAME: "ElasticnetHourModel"
 
 jobs:
   build:
