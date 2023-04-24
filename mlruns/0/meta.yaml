@@ -1,0 +1,6 @@
+artifact_location: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0
+creation_time: 1682321169936
+experiment_id: '0'
+last_update_time: 1682321169936
+lifecycle_stage: active
+name: Default
