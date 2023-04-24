@@ -106,9 +106,9 @@ print(artifact_path)
 
 #Download the artifact in local machine
 
-model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\mlflow\Models")
+# model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\mlflow\Models")
 
-print("MODEL PATH:",model_path)
+# print("MODEL PATH:",model_path)
 
 ## USING BOTO3 ##
 
