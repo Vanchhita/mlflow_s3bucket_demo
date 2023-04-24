@@ -56,7 +56,7 @@ run_id = runs.iloc[0].run_id
 
 # Get the run's model URI
 
-model_uri = f"runs:/{run_id}/model"
+model_uri = f"runs:/{run_id}/artifacts/model"
 
 print(model_uri)
 
