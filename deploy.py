@@ -28,8 +28,8 @@ runs = mlflow.search_runs(experiment_names=[experiment_name])
 print(runs)
 # Set up credentials for MLflow tracking server access
 
-mlflow_tracking_uri= os.environ['MLFLOW_TRACKING_URI']
-# mlflow_tracking_uri="http://127.0.0.1:5000"
+# mlflow_tracking_uri= os.environ['MLFLOW_TRACKING_URI']
+mlflow_tracking_uri="http://127.0.0.1:5000"
 print("MLFLOW_TRACKING_URI",mlflow_tracking_uri)
 
 mlflow.set_tracking_uri(mlflow_tracking_uri)
@@ -107,10 +107,10 @@ print(artifact_path)
 #Download the artifact in local machine
 
 
-run_id = "012f572be865428c9ab5b701ab2a6d1c"  # specify the ID of the run that contains the artifacts you want to download
-run = mlflow.get_run(run_id)
+# run_id = "012f572be865428c9ab5b701ab2a6d1c"  # specify the ID of the run that contains the artifacts you want to download
+# run = mlflow.get_run(run_id)
 
-artifact_uri = run.info.artifact_uri
+# artifact_uri = run.info.artifact_uri
 # local_dir = "C:\\Users\v\Desktop\models"  # specify the path of the local directory where you want to save the downloaded artifacts
 # model_uri = "models:/Car_price_prediction_model/8"
 # artifact_uri = mlflow.get_artifact_uri(model_uri)
@@ -119,7 +119,7 @@ artifact_uri = run.info.artifact_uri
 
 # model_path=mlflow.artifacts.download_artifacts(run_id=run_id, dst_path=local_dir)
 
-model_path = mlflow.artifacts.download_artifacts(artifact_uri, dst_path="C://Users/v/Desktop/models")
+model_path = mlflow.artifacts.download_artifacts(artifact_path, dst_path="C://Users/v/Desktop/models")
 
 # use the downloaded model
 # model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\Desktop\models")
