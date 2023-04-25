@@ -8,19 +8,17 @@ import requests
 # # Set the experiment name ,run name, aws_key and aws_key_id
 
 experiment_name = os.environ["EXPERIMENT_NAME"]
-
 run_name = os.environ["RUN_NAME"]
-# experiment_name= "Default"
-# run_name= "marvelous-flea-997"
-
 access_key = os.environ['AWS_ACCESS_KEY_ID']
-
 secret_key = os.environ['AWS_SECRET_ACCESS_KEY']
 
 # experiment_name= "Default"
+# run_name= "marvelous-flea-997"
+# experiment_name= "Default"
 
-# run_name="wise-foal-997"
-# print("run_name:", run_name)
+print("run_name:", run_name)
+# s3_bucket_name="dts-textract-test"
+# s3_folder_name="mlflow_demo_models"
 # Set the S3 bucket and folder where you want to store the artifacts
 
 s3_bucket_name = os.environ['S3_BUCKET_NAME']
@@ -63,11 +61,11 @@ model_uri = f"runs:/{run_id}/model"
 print(model_uri)
 
 
-model_name= "Car_price_prediction_model"
+# model_name= "Car_price_prediction_model"
 
 # Register the model
 
-# model_name = os.environ['MODEL_NAME']
+model_name = os.environ['MODEL_NAME']
 
 model_version = mlflow.register_model(model_uri, model_name)
 
