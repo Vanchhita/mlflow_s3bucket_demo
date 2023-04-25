@@ -75,6 +75,6 @@ if __name__ == "__main__":
         if tracking_url_type_store != "file":
             # Register the model
             
-            mlflow.sklearn.log_model(lr, "model", registered_model_name="ElasticnetHourModel")
+            mlflow.sklearn.log_model(lr, "model", registered_model_name="Car_price_prediction_Model")
         else:
             mlflow.sklearn.log_model(lr, "model")
