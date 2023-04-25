@@ -50,13 +50,13 @@ elif len(runs) > 1:
     raise ValueError(f"Multiple runs found with name {run_name} in experiment {experiment_name}. Please use a unique name.")
 
 run_id = runs.iloc[0].run_id
-
+print(run_id)
 
 
 
 # Get the run's model URI
 
-model_uri = f"runs:/{run_id}/artifacts/model"
+model_uri = f"runs:/{run_id}/model"
 
 print(model_uri)
 
@@ -119,28 +119,28 @@ print(artifact_path)
 
 # model_path=mlflow.artifacts.download_artifacts(run_id=run_id, dst_path=local_dir)
 
-model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\Desktop\models")
+# model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\Desktop\models")
 
-print("MODEL PATH:",model_path)
+# print("MODEL PATH:",model_path)
 
-## USING BOTO3 ##
+# ## USING BOTO3 ##
 
-s3_client = boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_key)
-try:
-# Upload the local directory to S3
-    for root, dirs, files in os.walk(model_path):
-        for file in files:
-            local_file_path = os.path.join(root, file)
-            print("local_file_path:",local_file_path)
-            s3_client.upload_file(local_file_path, s3_bucket_name,f"{s3_folder_name}/{model_name}/{model_version.version}/")
-
-
+# s3_client = boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_key)
+# try:
+# # Upload the local directory to S3
+#     for root, dirs, files in os.walk(model_path):
+#         for file in files:
+#             local_file_path = os.path.join(root, file)
+#             print("local_file_path:",local_file_path)
+#             s3_client.upload_file(local_file_path, s3_bucket_name,f"{s3_folder_name}/{model_name}/{model_version.version}/")
 
 
-    s3_uri = "s3://{}/{}/{}/Version:{}".format(s3_bucket_name, s3_folder_name,model_name,model_version.version)
 
-    print("Model artifacts stored in S3:", s3_uri)
 
-except KeyError as e:
+#     s3_uri = "s3://{}/{}/{}/Version:{}".format(s3_bucket_name, s3_folder_name,model_name,model_version.version)
 
-    print("Error while pushing to S3 bucket:",e)
+#     print("Model artifacts stored in S3:", s3_uri)
+
+# except KeyError as e:
+
+#     print("Error while pushing to S3 bucket:",e)
