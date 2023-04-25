@@ -10,6 +10,8 @@ import requests
 experiment_name = os.environ["EXPERIMENT_NAME"]
 
 run_name = os.environ["RUN_NAME"]
+# experiment_name= "Default"
+# run_name= "marvelous-flea-997"
 
 access_key = os.environ['AWS_ACCESS_KEY_ID']
 
@@ -29,7 +31,7 @@ print(runs)
 # Set up credentials for MLflow tracking server access
 
 mlflow_tracking_uri= os.environ['MLFLOW_TRACKING_URI']
-
+# mlflow_tracking_uri="http://127.0.0.1:5000"
 print("MLFLOW_TRACKING_URI",mlflow_tracking_uri)
 
 mlflow.set_tracking_uri(mlflow_tracking_uri)
@@ -61,11 +63,11 @@ model_uri = f"runs:/{run_id}/model"
 print(model_uri)
 
 
-
+model_name= "Car_price_prediction_model"
 
 # Register the model
 
-model_name = os.environ['MODEL_NAME']
+# model_name = os.environ['MODEL_NAME']
 
 model_version = mlflow.register_model(model_uri, model_name)
 
@@ -119,28 +121,31 @@ print(artifact_path)
 
 # model_path=mlflow.artifacts.download_artifacts(run_id=run_id, dst_path=local_dir)
 
+model_path = mlflow.artifacts.download_artifacts(artifact_path, dst_path="C://Users/v/Desktop/models")
+
+# use the downloaded model
 # model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\Desktop\models")
 
-# print("MODEL PATH:",model_path)
+print("MODEL PATH:",model_path)
 
 # ## USING BOTO3 ##
 
-# s3_client = boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_key)
-# try:
-# # Upload the local directory to S3
-#     for root, dirs, files in os.walk(model_path):
-#         for file in files:
-#             local_file_path = os.path.join(root, file)
-#             print("local_file_path:",local_file_path)
-#             s3_client.upload_file(local_file_path, s3_bucket_name,f"{s3_folder_name}/{model_name}/{model_version.version}/")
+s3_client = boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_key)
+try:
+# Upload the local directory to S3
+    for root, dirs, files in os.walk(model_path):
+        for file in files:
+            local_file_path = os.path.join(root, file)
+            print("local_file_path:",local_file_path)
+            s3_client.upload_file(local_file_path, s3_bucket_name,f"{s3_folder_name}/{model_name}/{model_version.version}/")
 
 
 
 
-#     s3_uri = "s3://{}/{}/{}/Version:{}".format(s3_bucket_name, s3_folder_name,model_name,model_version.version)
+    s3_uri = "s3://{}/{}/{}/Version:{}".format(s3_bucket_name, s3_folder_name,model_name,model_version.version)
 
-#     print("Model artifacts stored in S3:", s3_uri)
+    print("Model artifacts stored in S3:", s3_uri)
 
-# except KeyError as e:
+except KeyError as e:
 
-#     print("Error while pushing to S3 bucket:",e)
+    print("Error while pushing to S3 bucket:",e)
