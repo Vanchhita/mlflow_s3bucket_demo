@@ -119,7 +119,7 @@ print(artifact_path)
 
 # model_path=mlflow.artifacts.download_artifacts(run_id=run_id, dst_path=local_dir)
 
-model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\\Users\v\Desktop\mlflow_demo\mlflow_s3bucket_demo\Demo_Models")
+model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path="C:\Users\v\Desktop\models")
 
 print("MODEL PATH:",model_path)
 
