@@ -105,7 +105,7 @@ print("MODEL URI:",model_uri)
 
 
 #Download the artifact in local machine
-run_id = mlflow.active_run().info.run_id
+# run_id = mlflow.active_run().info.run_id
 artifact_uri = os.path.join(mlflow.get_tracking_uri(), "mlruns", run_id, "artifacts")
 dst_path = "C:/Users/v/Desktop/models"
 model_path=mlflow.artifacts.download_artifacts(artifact_uri, dst_path)
