@@ -28,8 +28,8 @@ runs = mlflow.search_runs(experiment_names=[experiment_name])
 print(runs)
 # Set up credentials for MLflow tracking server access
 
-# mlflow_tracking_uri= os.environ['MLFLOW_TRACKING_URI']
-mlflow_tracking_uri="http://127.0.0.1:5000"
+mlflow_tracking_uri= os.environ['MLFLOW_TRACKING_URI']
+# mlflow_tracking_uri="http://127.0.0.1:5000"
 print("MLFLOW_TRACKING_URI",mlflow_tracking_uri)
 
 mlflow.set_tracking_uri(mlflow_tracking_uri)
