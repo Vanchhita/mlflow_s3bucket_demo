@@ -1,0 +1,12 @@
+creation_timestamp: 1682409792572
+current_stage: Staging
+description: ''
+last_updated_timestamp: 1682409792905
+name: Car_price_prediction_model
+run_id: 012f572be865428c9ab5b701ab2a6d1c
+run_link: ''
+source: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/012f572be865428c9ab5b701ab2a6d1c/artifacts/model
+status: READY
+status_message: null
+user_id: null
+version: 30
