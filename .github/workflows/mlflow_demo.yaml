@@ -21,7 +21,7 @@ env:
   RANDOM_STATE: 42
   EXPERIMENT_NAME: "Default"
   RUN_NAME: "marvelous-flea-997"
-  MLFLOW_TRACKING_URI: "https://a669-49-36-209-126.in.ngrok.io"
+  MLFLOW_TRACKING_URI: "https://4b33-49-36-209-126.in.ngrok.io"
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   S3_BUCKET_NAME: "dts-textract-test"
