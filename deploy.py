@@ -106,8 +106,15 @@ print("MODEL URI:",model_uri)
 
 #Download the artifact in local machine
 # run_id = mlflow.active_run().info.run_id
-artifact_uri = os.path.join(mlflow.get_tracking_uri(), "mlruns", run_id, "artifacts")
+# artifact_uri = os.path.join(mlflow.get_tracking_uri(), "mlruns", run_id, "artifacts")
 dst_path = "C:/Users/v/Desktop/models"
+
+artifact_uri = "file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/012f572be865428c9ab5b701ab2a6d1c/artifacts/model"
+
+
+mlflow.artifacts.download_artifacts(artifact_uri=artifact_uri, dst_path=dst_path)
+
+
 model_path=mlflow.artifacts.download_artifacts(artifact_uri, dst_path)
 
 # run_id = "012f572be865428c9ab5b701ab2a6d1c"  # specify the ID of the run that contains the artifacts you want to download
