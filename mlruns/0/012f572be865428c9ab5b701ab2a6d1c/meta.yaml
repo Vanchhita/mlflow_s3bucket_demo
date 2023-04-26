@@ -1,8 +1,9 @@
 artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/012f572be865428c9ab5b701ab2a6d1c/artifacts
+deleted_time: 1682414876572
 end_time: 1682329484502
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 012f572be865428c9ab5b701ab2a6d1c
 run_name: marvelous-flea-997
 run_uuid: 012f572be865428c9ab5b701ab2a6d1c

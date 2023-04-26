@@ -1,8 +1,9 @@
 artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/972c8eac628d480f9d831c7c5987ba26/artifacts
+deleted_time: 1682414876573
 end_time: 1682321173406
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 972c8eac628d480f9d831c7c5987ba26
 run_name: likeable-snail-983
 run_uuid: 972c8eac628d480f9d831c7c5987ba26

@@ -18,8 +18,8 @@ import mlflow
 
 
 import logging
-# mlflow_uri="http://127.0.0.1:5000"
-# mlflow.set_tracking_uri(mlflow_uri)
+mlflow_uri="http://127.0.0.1:5000"
+mlflow.set_tracking_uri(mlflow_uri)
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
 
@@ -51,7 +51,17 @@ if __name__ == "__main__":
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, random_state=42) 
     alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
-    with mlflow.start_run():
+
+    import mlflow
+
+# Set the artifact URI to the new location
+    new_artifact_location = "0/012f572be865428c9ab5b701ab2a6d1c/artifacts"
+    mlflow.set_tracking_uri("http://localhost:5000")
+    experiment_id = 0  # Replace with the actual experiment ID
+    with mlflow.start_run(experiment_id=experiment_id):
+    # Your code here
+
+    # with mlflow.start_run():
         #loading the linear regression model 
         lr = LinearRegression() 
         #Now we can fit the model to our dataset 
