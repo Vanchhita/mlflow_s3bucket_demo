@@ -99,13 +99,13 @@ if __name__ == "__main__":
         mlflow.log_metric("mae", mae)
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
-        # Model registry does not work with file store
-        if tracking_url_type_store != "file":
-            # Register the model
+        # # Model registry does not work with file store
+        # if tracking_url_type_store != "file":
+        #     # Register the model
             
-            mlflow.sklearn.log_model(lr, "model", registered_model_name="Car_price_prediction_Model")
-        else:
-            mlflow.sklearn.log_model(lr, "model")
+        #     mlflow.sklearn.log_model(lr, "model", registered_model_name="Car_price_prediction_Model")
+        # else:
+        #     mlflow.sklearn.log_model(lr, "model")
         runs = mlflow.search_runs(experiment_names=[experiment_name])
         print(runs)
 

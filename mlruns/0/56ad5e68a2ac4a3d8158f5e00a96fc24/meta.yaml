@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/56ad5e68a2ac4a3d8158f5e00a96fc24/artifacts
+end_time: 1682578376736
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 56ad5e68a2ac4a3d8158f5e00a96fc24
+run_name: resilient-gnu-783
+run_uuid: 56ad5e68a2ac4a3d8158f5e00a96fc24
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682578370699
+status: 4
+tags: []
+user_id: runner
