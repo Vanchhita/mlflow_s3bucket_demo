@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/bdb084babf7645e9939ddcc46c7e5150/artifacts
+end_time: 1682578677624
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bdb084babf7645e9939ddcc46c7e5150
+run_name: burly-tern-630
+run_uuid: bdb084babf7645e9939ddcc46c7e5150
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682578672651
+status: 4
+tags: []
+user_id: runner

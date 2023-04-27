@@ -140,6 +140,11 @@ if __name__ == "__main__":
             version=model_version.version,
         stage="staging"
         )
+        try:
+            experiment = mlflow.get_experiment_by_name('shivering-dolphin-46')
+            experiment_id = experiment.experiment_id
+        except AttributeError:
+            experiment_id = mlflow.create_experiment('shivering-dolphin-46', artifact_location='s3://dts-textract-test/mlflow_demo_models/')
 
 # Load the registered model artifact from the registry
         model_uri = f"models:/{model_name}/{model_version.version}"
@@ -150,26 +155,26 @@ if __name__ == "__main__":
         artifact_path = model_version_details.source
         print(artifact_path)
 
-#Download the artifact in local machine
-        model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
-# model_path = mlflow.artifacts.download_artifacts(run_id, dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
-        print("MODEL PATH=",model_path)
+# #Download the artifact in local machine
+#         model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
+# # model_path = mlflow.artifacts.download_artifacts(run_id, dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
+#         print("MODEL PATH=",model_path)
 
 
-## USING BOTO3 ##
+# ## USING BOTO3 ##
 
-        s3_client = boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_key)
-        try:
-        # Upload the local directory to S3
-            for root, dirs, files in os.walk(model_path):
-                for file in files:
-                    local_path = os.path.join(root, file)
-                    s3_path = os.path.join(f"{s3_folder_name}/{model_name}/Version-{model_version.version}", local_path[len(model_path)+1:])
-                    print(s3_path)
-                    s3_client.upload_file(local_path,s3_bucket_name, s3_path)
+#         s3_client = boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_key)
+#         try:
+#         # Upload the local directory to S3
+#             for root, dirs, files in os.walk(model_path):
+#                 for file in files:
+#                     local_path = os.path.join(root, file)
+#                     s3_path = os.path.join(f"{s3_folder_name}/{model_name}/Version-{model_version.version}", local_path[len(model_path)+1:])
+#                     print(s3_path)
+#                     s3_client.upload_file(local_path,s3_bucket_name, s3_path)
 
-            s3_uri = "s3://{}/{}/{}/Version:{}".format(s3_bucket_name, s3_folder_name,model_name,model_version.version)
-            print("Model artifacts stored in S3:", s3_uri)
-        except KeyError as e:
-            print("Error while pushing to S3 bucket:",e)
+#             s3_uri = "s3://{}/{}/{}/Version:{}".format(s3_bucket_name, s3_folder_name,model_name,model_version.version)
+#             print("Model artifacts stored in S3:", s3_uri)
+#         except KeyError as e:
+#             print("Error while pushing to S3 bucket:",e)
 
