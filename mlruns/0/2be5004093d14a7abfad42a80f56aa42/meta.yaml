@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/2be5004093d14a7abfad42a80f56aa42/artifacts
+end_time: 1682577349314
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2be5004093d14a7abfad42a80f56aa42
+run_name: shivering-dolphin-46
+run_uuid: 2be5004093d14a7abfad42a80f56aa42
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682577343599
+status: 3
+tags: []
+user_id: Vanchhita
