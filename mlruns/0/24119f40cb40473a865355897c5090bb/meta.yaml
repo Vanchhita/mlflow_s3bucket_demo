@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/24119f40cb40473a865355897c5090bb/artifacts
+end_time: 1682581709842
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 24119f40cb40473a865355897c5090bb
+run_name: inquisitive-lynx-446
+run_uuid: 24119f40cb40473a865355897c5090bb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682581706092
+status: 3
+tags: []
+user_id: Vanchhita

@@ -16,9 +16,9 @@ env:
   L1_RATIO: 0.9
   RANDOM_STATE: 42
   EXPERIMENT_NAME: "Default"
-  RUN_NAME: "shivering-dolphin-46"
+  RUN_NAME: "charming-penguin-648"
   MODEL_NAME: "Model-demo"
-  MLFLOW_TRACKING_URI: "https://74a4-49-36-211-108.in.ngrok.io"
+  MLFLOW_TRACKING_URI: "https://a7a2-49-36-211-108.in.ngrok.io"
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   S3_BUCKET_NAME: "dts-textract-test"
@@ -60,7 +60,7 @@ jobs:
         
       #run python deploy_model file
       - name: Run python deploy_model.py
-        run: python mlflow_demo.py --env-manager=local
+        run: python deploy.py --env-manager=local
 
       #print script ran file
       - name: Output

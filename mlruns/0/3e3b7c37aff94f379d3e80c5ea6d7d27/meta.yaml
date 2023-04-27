@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/3e3b7c37aff94f379d3e80c5ea6d7d27/artifacts
+end_time: 1682580093136
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3e3b7c37aff94f379d3e80c5ea6d7d27
+run_name: bedecked-crab-809
+run_uuid: 3e3b7c37aff94f379d3e80c5ea6d7d27
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682580087750
+status: 4
+tags: []
+user_id: runner

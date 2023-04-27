@@ -1,0 +1,6 @@
+artifact_location: c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/
+creation_time: 1682582626904
+experiment_id: '232906262845577881'
+last_update_time: 1682582626904
+lifecycle_stage: active
+name: mlflow-demo-ex1

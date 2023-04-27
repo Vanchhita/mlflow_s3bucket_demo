@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/921bb7f6c6ac49cd8a4b7ae700db16f8/artifacts
+end_time: 1682580919772
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 921bb7f6c6ac49cd8a4b7ae700db16f8
+run_name: enthused-snake-705
+run_uuid: 921bb7f6c6ac49cd8a4b7ae700db16f8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682580919700
+status: 4
+tags: []
+user_id: Vanchhita

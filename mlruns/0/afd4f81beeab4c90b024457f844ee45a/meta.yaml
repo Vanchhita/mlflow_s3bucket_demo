@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/afd4f81beeab4c90b024457f844ee45a/artifacts
+end_time: 1682580855802
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: afd4f81beeab4c90b024457f844ee45a
+run_name: capricious-fish-784
+run_uuid: afd4f81beeab4c90b024457f844ee45a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682580855733
+status: 4
+tags: []
+user_id: Vanchhita

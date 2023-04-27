@@ -34,16 +34,7 @@ def eval_metrics(actual, pred):
     mae = mean_absolute_error(actual, pred)
     r2 = r2_score(actual, pred)
     return rmse, mae, r2
-# # Set the experiment name ,run name, aws_key and aws_key_id
-experiment_name = os.environ["EXPERIMENT_NAME"]
-run_name = os.environ["RUN_NAME"]
-access_key = os.environ['AWS_ACCESS_KEY_ID']
-secret_key = os.environ['AWS_SECRET_ACCESS_KEY']
 
-
-# Set the S3 bucket and folder where you want to store the artifacts
-s3_bucket_name = os.environ['S3_BUCKET_NAME']
-s3_folder_name = os.environ['S3_FOLDER_NAME']
 if __name__ == "__main__":
     warnings.filterwarnings("ignore")
     np.random.seed(40)
@@ -78,7 +69,7 @@ if __name__ == "__main__":
 #     experiment_id = 0  # Replace with the actual experiment ID
 #     with mlflow.start_run(experiment_id=experiment_id):
     # Your code here
-
+    # experiment_id = mlflow.create_experiment('mlflow-demo-ex1', artifact_location='c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/')
     with mlflow.start_run():
         #loading the linear regression model 
         lr = LinearRegression() 
@@ -99,82 +90,20 @@ if __name__ == "__main__":
         mlflow.log_metric("mae", mae)
 
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
-        # # Model registry does not work with file store
-        # if tracking_url_type_store != "file":
-        #     # Register the model
+        # Model registry does not work with file store
+        if tracking_url_type_store != "file":
+            # Register the model
             
-        #     mlflow.sklearn.log_model(lr, "model", registered_model_name="Car_price_prediction_Model")
-        # else:
-        #     mlflow.sklearn.log_model(lr, "model")
-        runs = mlflow.search_runs(experiment_names=[experiment_name])
-        print(runs)
+            mlflow.sklearn.log_model(lr, "model", registered_model_name="Car_price_prediction_Model")
+        else:
+            mlflow.sklearn.log_model(lr, "model")
+        
+        # try:
+        #     experiment = mlflow.get_experiment_by_name('Default')
+        #     experiment_id = experiment.experiment_id
+        # except AttributeError:
+        
 
 
-        # Set up credentials for MLflow tracking server access
-        mlflow_tracking_uri= os.environ['MLFLOW_TRACKING_URI']
-        print("MLFLOW_TRACKING_URI",mlflow_tracking_uri)
-        mlflow.set_tracking_uri(mlflow_tracking_uri)
 
-
-        # Get the run by name
-        runs = mlflow.search_runs(experiment_ids=mlflow.get_experiment_by_name(experiment_name).experiment_id, 
-                        filter_string=f"tags.mlflow.runName = '{run_name}'")
-        if len(runs) == 0:
-            raise ValueError(f"No runs found with name {run_name} in experiment {experiment_name}")
-        elif len(runs) > 1:
-            raise ValueError(f"Multiple runs found with name {run_name} in experiment {experiment_name}. Please use a unique name.")
-        run_id = runs.iloc[0].run_id
-
-# Get the run's model URI
-        model_uri = f"runs:/{run_id}/model"
-        print(model_uri)
-
-        # Register the model
-        model_name = os.environ['MODEL_NAME']
-        model_version = mlflow.register_model(model_uri, model_name)
-
-        # Change the run's stage to "staging"
-        mlflow_client = mlflow.tracking.MlflowClient()
-        mlflow_client.transition_model_version_stage(
-        name=model_name,
-            version=model_version.version,
-        stage="staging"
-        )
-        try:
-            experiment = mlflow.get_experiment_by_name('shivering-dolphin-46')
-            experiment_id = experiment.experiment_id
-        except AttributeError:
-            experiment_id = mlflow.create_experiment('shivering-dolphin-46', artifact_location='s3://dts-textract-test/mlflow_demo_models/')
-
-# Load the registered model artifact from the registry
-        model_uri = f"models:/{model_name}/{model_version.version}"
-        print("MODEL URI:",model_uri)
-
-        client = mlflow.tracking.MlflowClient()
-        model_version_details = client.get_model_version(model_name, model_version.version)
-        artifact_path = model_version_details.source
-        print(artifact_path)
-
-#Download the artifact in local machine
-        model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
-# model_path = mlflow.artifacts.download_artifacts(run_id, dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
-        print("MODEL PATH=",model_path)
-
-
-## USING BOTO3 ##
-
-        s3_client = boto3.client('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_key)
-        try:
-        # Upload the local directory to S3
-            for root, dirs, files in os.walk(model_path):
-                for file in files:
-                    local_path = os.path.join(root, file)
-                    s3_path = os.path.join(f"{s3_folder_name}/{model_name}/Version-{model_version.version}", local_path[len(model_path)+1:])
-                    print(s3_path)
-                    s3_client.upload_file(local_path,s3_bucket_name, s3_path)
-
-            s3_uri = "s3://{}/{}/{}/Version:{}".format(s3_bucket_name, s3_folder_name,model_name,model_version.version)
-            print("Model artifacts stored in S3:", s3_uri)
-        except KeyError as e:
-            print("Error while pushing to S3 bucket:",e)
 

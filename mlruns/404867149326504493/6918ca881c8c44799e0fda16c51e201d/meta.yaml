@@ -1,0 +1,15 @@
+artifact_uri: c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/6918ca881c8c44799e0fda16c51e201d/artifacts
+end_time: 1682582094010
+entry_point_name: ''
+experiment_id: '404867149326504493'
+lifecycle_stage: active
+run_id: 6918ca881c8c44799e0fda16c51e201d
+run_name: rogue-snipe-595
+run_uuid: 6918ca881c8c44799e0fda16c51e201d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682582090597
+status: 4
+tags: []
+user_id: Vanchhita

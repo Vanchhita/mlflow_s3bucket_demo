@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/0f68c6759b0f4e05a9dfca69bc33613a/artifacts
+end_time: 1682580571317
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0f68c6759b0f4e05a9dfca69bc33613a
+run_name: thundering-fowl-394
+run_uuid: 0f68c6759b0f4e05a9dfca69bc33613a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682580571242
+status: 4
+tags: []
+user_id: Vanchhita

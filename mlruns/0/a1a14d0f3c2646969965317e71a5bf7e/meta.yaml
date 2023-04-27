@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/a1a14d0f3c2646969965317e71a5bf7e/artifacts
+end_time: 1682580906721
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a1a14d0f3c2646969965317e71a5bf7e
+run_name: overjoyed-jay-453
+run_uuid: a1a14d0f3c2646969965317e71a5bf7e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1682580906659
+status: 4
+tags: []
+user_id: Vanchhita
