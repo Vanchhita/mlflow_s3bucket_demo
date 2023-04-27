@@ -10,8 +10,8 @@ on:
       - master
 
 env:
-  CSV_URL: "daTA.csv"
-  TARGET_VAR: "Selling_Price"
+  CSV_URL: "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
+  TARGET_VAR: "quality"
   ALPHA: 0.8
   L1_RATIO: 0.9
   RANDOM_STATE: 42
