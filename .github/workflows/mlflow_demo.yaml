@@ -1,10 +1,8 @@
 name: CI
+
 on:
-
   push:
-
     branches:
-
       - main
       - master
   pull_request:
@@ -12,49 +10,60 @@ on:
       - master
 
 env:
-  # CSV_URL: "http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv"
   CSV_URL: "daTA.csv"
-
   TARGET_VAR: "Selling_Price"
-  ALPHA: 0.5
-  L1_RATIO: 0.5
+  ALPHA: 0.8
+  L1_RATIO: 0.9
   RANDOM_STATE: 42
   EXPERIMENT_NAME: "Default"
   RUN_NAME: "puzzled-dog-806"
-  MLFLOW_TRACKING_URI: "https://ef24-49-36-209-126.in.ngrok.io "
+  MODEL_NAME: "Model-demo"
+  MLFLOW_TRACKING_URI: "https://74a4-49-36-211-108.in.ngrok.io"
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   S3_BUCKET_NAME: "dts-textract-test"
   S3_FOLDER_NAME: "mlflow_demo_models"
-  MODEL_NAME: "Car_price_prediction_model"
+  #destination path to download mlflow artifact 
+  ARTIFACT_DESTINATION_PATH: "C://Users/v/Desktop/models"
+  
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-  # Checks-out your repository under $GITHUB_WORKSPACE
-      - uses: actions/checkout@v3
-# Setup Python 3.9
 
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v3
+
+      # Setup Python 3.9
       - name: Set up Python 3.9
         uses: actions/setup-python@v4
-
         with:
           python-version: "3.9"
-# Check Env Variables
 
+      # Check Env Variables
       - name: Check Env
         run: |
           echo $CSV_URL
-# Install mlflow
+
+      # Install mlflow
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install mlflow
           pip install boto3
-# #Run as a mlflow project.
 
+      # #Run as a mlflow project.
+      # - name: Run mlflow project
+      #   run: |
+      #     mlflow run wine_example --env-manager=local
+        
+      #run python deploy_model file
+      - name: Run python deploy_model.py
+        run: python deploy_model.py --env-manager=local
 
-      - name: Run python deploy.py
+      #print script ran file
+      - name: Output
+        run: echo $"Script ran fine"
 
-        run: python deploy.py --env-manager=local
+          
