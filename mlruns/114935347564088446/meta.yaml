@@ -1,0 +1,6 @@
+artifact_location: s3://dts-textract-test/mlflow_demo_models/
+creation_time: 1682579359019
+experiment_id: '114935347564088446'
+last_update_time: 1682579359019
+lifecycle_stage: active
+name: shivering-dolphin-46
