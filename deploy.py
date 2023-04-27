@@ -63,8 +63,8 @@ artifact_path = model_version_details.source
 print(artifact_path)
 
 #Download the artifact in local machine
-# model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
-model_path = mlflow.artifacts.download_artifacts(run_id, dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
+model_path = mlflow.artifacts.download_artifacts(artifact_path,dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
+# model_path = mlflow.artifacts.download_artifacts(run_id, dst_path=os.environ['ARTIFACT_DESTINATION_PATH'])
 print("MODEL PATH=",model_path)
 
 
