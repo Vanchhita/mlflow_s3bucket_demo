@@ -60,7 +60,7 @@ jobs:
         
       #run python deploy_model file
       - name: Run python deploy_model.py
-        run: python deploy_model.py --env-manager=local
+        run: python deploy.py --env-manager=local
 
       #print script ran file
       - name: Output
