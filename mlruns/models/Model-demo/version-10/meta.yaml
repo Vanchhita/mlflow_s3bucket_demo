@@ -1,0 +1,13 @@
+aliases: []
+creation_timestamp: 1682583241211
+current_stage: Staging
+description: ''
+last_updated_timestamp: 1682583241514
+name: Model-demo
+run_id: 467c2e2550344dadbec79a8c1dcb9e92
+run_link: ''
+source: file:///c:/Users/v/Desktop/mlflow_demo/mlflow_s3bucket_demo/mlruns/0/467c2e2550344dadbec79a8c1dcb9e92/artifacts/model
+status: READY
+status_message: null
+user_id: null
+version: 10
